@@ -122,7 +122,7 @@ const menu = document.querySelector('.articles')
 // Write a component called 'articleMaker' to create an article. You want your component to return markup like the template
 
 function articleMaker(articleDataObj) {
-
+  
   const article = document.createElement('div')
   const articleTitle = document.createElement('h2')
   const articleDate = document.createElement('p')
@@ -130,37 +130,37 @@ function articleMaker(articleDataObj) {
   const articleParaTwo = document.createElement('p')
   const articleParaThree = document.createElement('p')
   const expandButton = document.createElement('button')
-
+  
   article.appendChild(articleTitle)
   article.appendChild(articleDate)
   article.appendChild(articleParaOne)
   article.appendChild(articleParaTwo)
   article.appendChild(articleParaThree)
   article.appendChild(expandButton)
-
+  
   article.className = 'article'
   articleDate.className = 'date'
   expandButton.className = 'expandButton'
   expandButton.textContent = '+'
-
+  
   articleTitle.textContent = articleDataObj.title
   articleDate.textContent = articleDataObj.date
   articleParaOne.textContent = articleDataObj.firstParagraph
   articleParaTwo.textContent = articleDataObj.secondParagraph
   articleParaThree.textContent = articleDataObj.thirdParagraph
-
+  
   // Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
-
+  
   expandButton.addEventListener('click', () => {
     article.classList.toggle('article-open')
   })
-
+  
   // Step 3: Don't forget to return something from your function!
   return article
 }
 
 // Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
 data.forEach(object => {
-  let article = articleMaker({ title: object.title, date: object.date, firstParagraph: object.firstParagraph, secondParagraph: object.secondParagraph, thirdParagraph: object.thirdParagraph })
+  let article = articleMaker({title: object.title, date: object.date, firstParagraph: object.firstParagraph, secondParagraph: object.secondParagraph, thirdParagraph: object.thirdParagraph})
   menu.appendChild(article)
 })
