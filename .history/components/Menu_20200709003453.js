@@ -33,30 +33,19 @@ let menuItems = [
 */
 
 function menuMaker(menuDataArray) {
-  const menuButton = document.querySelector('.menu-button')
   const menu = document.createElement('div')
-  const menuList = document.createElement('ul')
+  const menuList = document.createElement('ul')  
+  const menuItem = document.createElement('li')
 
-
-  menu.className = 'menu'
-
-  menuDataArray.forEach(item => {
-    const menuItem = document.createElement('li')
+  for (let i = 0; i < menuDataArray.length; i++) {
     menuList.appendChild(menuItem)
-    menuItem.textContent = item
-  })
+    menuItem.textContent = menuDataArray[i]
+    console.log(menuList)
+  }
 
   menu.appendChild(menuList)
+  console.log(menu)
 
-  menuButton.addEventListener('click', () => {
-    menu.classList.toggle('menu--open')
-  })
-
-  return menu
 }
-const header = document.querySelector('.header')
-const menu = menuMaker(menuItems)
 
-header.appendChild(menu)
-
-
+menuMaker(menuItems);
